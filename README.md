@@ -1,4 +1,11 @@
 ![image](https://cdn.discordapp.com/emojis/820733081966608415.png?v=1)
+#🗒️ `Indices`
+>
+>> 1. [👋 Hello](https://github.com/SenichiBot/SenichiKord/tree/readme#-hello)
+> 
+>> 2. [🚀 Selfhosting](https://github.com/SenichiBot/SenichiKord/tree/readme#-selfhosting)
+>
+>> 3. [😊 Conclusion](https://github.com/SenichiBot/SenichiKord/tree/readme#-conclusion)
 # 👋 `Hello`
 > My name is Sen'ichi, i've a lot of functions to enjoy your members in your server!
 >> [Click here](https://discord.com/api/oauth2/authorize?client_id=758128536908988436&permissions=37080128&scope=bot) if you want to add me!
