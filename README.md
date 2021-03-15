@@ -1,9 +1,9 @@
 ![image](https://cdn.discordapp.com/emojis/820733081966608415.png?v=1)
 # 👋 `Hello`
 > My name is Sen'ichi, i've a lot of functions to enjoy your members in your server!
->> [Click here]() if you want to add me!
+>> [Click here](https://discord.com/api/oauth2/authorize?client_id=758128536908988436&permissions=37080128&scope=bot) if you want to add me!
 >
->> [Click here]() if you want to join in my support server!
+>> [Click here](https://discord.gg/Akw8UAd) if you want to join in my support server!
 # 🚀 `Selfhosting`
 > First of it all, to selfhost Sen'ichi, you will need to clone the repository!
 >
