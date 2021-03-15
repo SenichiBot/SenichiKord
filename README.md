@@ -19,6 +19,6 @@
 > 
 >> Well done!
 # 😊 `Conclusion`
-> Don't use the same name as Sen'ichi, be creative, it’s not that hard to choose a name.
+>> Don't use the same name as Sen'ichi, be creative, it’s not that hard to choose a name.
 >
-> Keep in mind that the development team has nothing to do with what you do with Sen'ichi. We don't help with selfhosting.
+>>Keep in mind that the development team has nothing to do with what you do with Sen'ichi. We don't help with selfhosting.
