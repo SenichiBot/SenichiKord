@@ -25,7 +25,7 @@
  
 * After running the JAR file, it will appear a configuration file, put your bot token and your prefix and then execute the command again!
 
-> Well done!
+* Well done!
 # 😊 `Conclusion`
 
 Don't use the same name as Sen'ichi, be creative, it’s not that hard to choose a name.
