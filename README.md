@@ -13,20 +13,21 @@
 
 > [Click here](https://discord.gg/Akw8UAd) If you want to join my support server!
 # 🚀 `Selfhosting`
-> First of all, to selfhost Sen'ichi, you will need to clone the repository!
+* First of all, to selfhost Sen'ichi, you will need to clone the repository!
 
-> To do this, open Powershell on the folder that you want and type: `git clone https://github.com/SenichiBot/SenichiKord`
+* To do this, open Powershell on the folder that you want and type: `git clone https://github.com/SenichiBot/SenichiKord`
 
-> Secondly, you will need to compile Sen'ichi! Open your Powershell in the root folder and type: `./gradlew build`
+* Secondly, you will need to compile Sen'ichi! Open your Powershell in the root folder and type: `./gradlew build`
 
-> On the next step, you will need to get the JAR file! go to `build/libs` after compiling!
+* On the next step, you will need to get the JAR file! go to `build/libs` after compiling!
 
-> Drop the JAR file in an empty folder, open Powershell in the folder and type: `java -jar senichi-kord-1.0-SNAPSHOT.jar`
+* Drop the JAR file in an empty folder, open Powershell in the folder and type: `java -jar senichi-kord-1.0-SNAPSHOT.jar`
  
-> After running the JAR file, it will appear a configuration file, put your bot token and your prefix and then execute the command again!
+* After running the JAR file, it will appear a configuration file, put your bot token and your prefix and then execute the command again!
 
 > Well done!
 # 😊 `Conclusion`
-> Don't use the same name as Sen'ichi, be creative, it’s not that hard to choose a name.
 
-> Keep in mind that the development team has nothing to do with what you do with Sen'ichi. We don't help with selfhosting.
+Don't use the same name as Sen'ichi, be creative, it’s not that hard to choose a name.
+
+Keep in mind that the development team has nothing to do with what you do with Sen'ichi. We don't help with selfhosting.
