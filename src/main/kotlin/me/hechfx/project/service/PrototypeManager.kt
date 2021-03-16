@@ -1,14 +1,14 @@
 package me.hechfx.project.service
 
 import dev.kord.core.Kord
+import kotlinx.coroutines.Job
 import me.hechfx.project.api.Command
-import me.hechfx.project.api.Event
 import me.hechfx.project.command.vanilla.info.BotInfoCommand
 import me.hechfx.project.command.vanilla.misc.DiscrimCommand
 import me.hechfx.project.command.vanilla.misc.PingCommand
 import me.hechfx.project.command.vanilla.util.InviteCommand
-import me.hechfx.project.event.MessageEvent
-import me.hechfx.project.event.ReadyEvent
+import me.hechfx.project.event.MessageReceivedListener
+import me.hechfx.project.event.ReadyAnnounceListener
 
 class PrototypeManager(private val client: Kord) {
     fun loadCommands(): MutableList<Command> {
@@ -20,10 +20,10 @@ class PrototypeManager(private val client: Kord) {
         return commands
     }
 
-    fun loadEvents(): MutableList<Event> {
-        val events = mutableListOf<Event>()
-        events.add(MessageEvent(client))
-        events.add(ReadyEvent(client))
+    fun loadEvents(): MutableList<Job> {
+        val events = mutableListOf<Job>()
+        events.add(MessageReceivedListener(client).init())
+        events.add(ReadyAnnounceListener(client).init())
         return events
     }
 }

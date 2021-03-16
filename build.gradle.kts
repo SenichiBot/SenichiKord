@@ -26,9 +26,18 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed-jdbc:$exposedVersion")
 }
 
+kotlin {
+    sourceSets.all {
+        languageSettings.enableLanguageFeature("InlineClasses")
+    }
+}
+
 tasks {
     compileKotlin {
         kotlinOptions.jvmTarget = "1.8"
+        kotlinOptions {
+            freeCompilerArgs = listOf("-Xinline-classes")
+        }
     }
     jar {
         manifest {
@@ -43,4 +52,3 @@ tasks {
         })
     }
 }
-

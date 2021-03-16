@@ -1,22 +1,21 @@
 package me.hechfx.project.api
 
-import com.typesafe.config.ConfigFactory
 import dev.kord.core.Kord
 import dev.kord.core.behavior.channel.MessageChannelBehavior
+import dev.kord.core.entity.Member
 import dev.kord.core.entity.Message
 import dev.kord.core.entity.User
-import dev.kord.core.entity.channel.TextChannel
-import kotlinx.serialization.hocon.Hocon
-import kotlinx.serialization.hocon.decodeFromConfig
-import me.hechfx.project.util.boot.inspect
-import me.hechfx.project.util.locale.SenichiConfig
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flattenMerge
+import kotlinx.coroutines.flow.map
 
 class CommandContext(
     val client: Kord,
     val message: Message,
     val args: List<String>,
     val author: User,
-    val textChannel: MessageChannelBehavior
+    val textChannel: MessageChannelBehavior,
+    val users: Flow<Member> = client.guilds.map { it.members }.flattenMerge()
 ) {
     suspend fun reply(content: String) {
         this.textChannel.createMessage("\uD83D\uDD39 • ${this.author.mention} $content")
