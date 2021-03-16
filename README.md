@@ -23,7 +23,7 @@
 
 * Drop the JAR file in an empty folder, open Powershell in the folder and type: `java -jar senichi-kord-1.0-SNAPSHOT.jar`
  
-* After running the JAR file, it will appear a configuration file, put your bot token and your prefix and then execute the command again!
+* After running the JAR file, a configuration file will show up, put your bot token and your prefix and then execute the command again!
 
 * Well done!
 # 😊 `Conclusion`
