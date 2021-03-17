@@ -5,6 +5,7 @@ import me.hechfx.project.api.Command
 import me.hechfx.project.api.CommandContext
 import me.hechfx.project.service.PrototypeManager
 import me.hechfx.project.util.CommandCategory
+import me.hechfx.project.util.constant.Constants.EMBED_DEFAULT_COLOR
 
 class HelpCommand: Command {
     override val labels = listOf("help", "ajuda", "comandos", "kkeaedaumaajuda")
@@ -29,6 +30,7 @@ class HelpCommand: Command {
 
             embed {
                 title = "Meus comandos!"
+                color = EMBED_DEFAULT_COLOR
                 field {
                     name = "Informação"
                     value = infoCommandsMapping.joinToString(", ")
