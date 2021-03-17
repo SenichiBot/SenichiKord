@@ -3,10 +3,9 @@ package me.hechfx.project.service
 import dev.kord.core.Kord
 import kotlinx.coroutines.Job
 import me.hechfx.project.api.Command
-import me.hechfx.project.command.vanilla.info.BotInfoCommand
-import me.hechfx.project.command.vanilla.misc.DiscrimCommand
-import me.hechfx.project.command.vanilla.misc.PingCommand
-import me.hechfx.project.command.vanilla.util.InviteCommand
+import me.hechfx.project.command.vanilla.info.*
+import me.hechfx.project.command.vanilla.misc.*
+import me.hechfx.project.command.vanilla.util.*
 import me.hechfx.project.event.MessageReceivedListener
 import me.hechfx.project.event.ReadyAnnounceListener
 
@@ -17,6 +16,7 @@ class PrototypeManager(private val client: Kord) {
         commands.add(BotInfoCommand())
         commands.add(InviteCommand())
         commands.add(DiscrimCommand())
+        commands.add(HelpCommand())
         return commands
     }
 

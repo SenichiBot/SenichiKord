@@ -28,7 +28,8 @@ inline class MessageReceivedListener(override val client: Kord): Event {
             this.message,
             args,
             this.message.author!!,
-            this.message.channel
+            this.message.channel,
+            config = getConfig()
         )
 
         val prototypeMgr = PrototypeManager(client)

@@ -8,6 +8,7 @@ import dev.kord.core.entity.User
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flattenMerge
 import kotlinx.coroutines.flow.map
+import me.hechfx.project.util.locale.SenichiConfig
 
 class CommandContext(
     val client: Kord,
@@ -15,7 +16,8 @@ class CommandContext(
     val args: List<String>,
     val author: User,
     val textChannel: MessageChannelBehavior,
-    val users: Flow<Member> = client.guilds.map { it.members }.flattenMerge()
+    val users: Flow<Member> = client.guilds.map { it.members }.flattenMerge(),
+    val config: SenichiConfig
 ) {
     suspend fun reply(content: String) {
         this.textChannel.createMessage("\uD83D\uDD39 • ${this.author.mention} $content")
