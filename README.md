@@ -2,11 +2,11 @@
 
 # 🗒️ `Indices`
 
-> 1. [👋 Hello](https://github.com/SenichiBot/SenichiKord/tree/main#-hello)
+> 1. [👋 Hello](https://github.com/senichibot/senichikord#-hello)
  
-> 2. [🚀 Selfhosting](https://github.com/SenichiBot/SenichiKord/tree/main#-selfhosting)
+> 2. [🚀 Selfhosting](https://github.com/senichibot/senichikord#-selfhosting)
 
-> 3. [😊 Conclusion](https://github.com/SenichiBot/SenichiKord/tree/main#-conclusion)
+> 3. [😊 Conclusion](https://github.com/senichibot/senichikord#-conclusion)
 # 👋 `Hello`
  My name is Sen'ichi, I have a lot of functions to entertain your members in your server!
 > [Click here](https://discord.com/api/oauth2/authorize?client_id=758128536908988436&permissions=37080128&scope=bot) if you want to add me!
