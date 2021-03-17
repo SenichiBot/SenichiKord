@@ -15,6 +15,8 @@
 # 🚀 `Selfhosting`
 * First of all, to selfhost Sen'ichi, you will need to clone the repository!
 
+* *You need JDK 15 to compile and run Sen'ichi!*
+
 * To do this, open Powershell on the folder that you want and type: `git clone https://github.com/SenichiBot/SenichiKord`
 
 * Secondly, you will need to compile Sen'ichi! Open your Powershell in the root folder and type: `./gradlew build`
