@@ -20,7 +20,7 @@ jobs:
       run: chmod +x gradlew
 
     - name: Build with Gradle
-      run: ./gradlew build --stacktrace > logs.txt 2>logErrors.txt
+      run: ./gradlew build --stacktrace
 
     - uses: actions/upload-artifact@v2
       name: Upload Senichi
