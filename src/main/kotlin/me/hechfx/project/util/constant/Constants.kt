@@ -10,9 +10,4 @@ import me.hechfx.project.util.locale.SenichiConfig
 object Constants {
     val EMBED_DEFAULT_COLOR = Color(252, 123, 3)
     val OWNER_ID = "236167700777271297"
-    fun getConfig(): SenichiConfig {
-        val config = Hocon {}.decodeFromConfig<SenichiConfig>(ConfigFactory.parseFile(inspect("config.conf")))
-
-        return config
-    }
 }

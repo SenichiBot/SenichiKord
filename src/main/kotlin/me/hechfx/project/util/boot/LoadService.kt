@@ -24,6 +24,7 @@ object LoadService {
         }
     }
 }
+
 fun inspect(fileName: String, createIfNotExists: Boolean = true): File {
     val file = File(fileName)
 
