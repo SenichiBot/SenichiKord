@@ -2,12 +2,12 @@ package me.hechfx.project.util.lavakord
 
 import dev.schlaubi.lavakord.audio.Link
 import dev.schlaubi.lavakord.audio.TrackEndEvent
+import dev.schlaubi.lavakord.audio.TrackEvent
 import dev.schlaubi.lavakord.audio.on
 import dev.schlaubi.lavakord.audio.player.Player
 import dev.schlaubi.lavakord.rest.TrackResponse
 import kotlinx.coroutines.FlowPreview
 import me.hechfx.project.api.CommandContext
-import me.hechfx.project.lavakord
 
 @FlowPreview
 @ExperimentalStdlibApi
@@ -17,7 +17,7 @@ class Lavakord(private val context: CommandContext) {
     }
 
     val link: Link
-        get() = context.guild?.let { lavakord.getLink(it.id.value) } ?: error("Missing guild")
+        get() = context.guild?.let { context.senichi.lavakord.getLink(it.id.value) } ?: error("Missing guild")
     val player: Player
         get() = link.player
 
@@ -39,7 +39,7 @@ class Lavakord(private val context: CommandContext) {
     suspend fun _play(track: TrackResponse.PartialTrack) {
         context.reply("Tocando agora: `${track.info.title}`")
 
-        player.on<TrackEndEvent> {
+        player.on<TrackEvent, TrackEndEvent> {
             finish(player)
         }
     }

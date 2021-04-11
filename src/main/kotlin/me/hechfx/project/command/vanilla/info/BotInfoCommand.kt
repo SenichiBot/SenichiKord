@@ -2,9 +2,13 @@ package me.hechfx.project.command.vanilla.info
 
 import dev.kord.common.entity.Snowflake
 import dev.kord.core.behavior.channel.createMessage
+import dev.kord.core.entity.User
 import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.count
-import me.hechfx.project.api.Command
+import kotlinx.coroutines.flow.flattenMerge
+import kotlinx.coroutines.flow.map
+import me.hechfx.project.api.TextCommand
 import me.hechfx.project.api.CommandContext
 import me.hechfx.project.util.CommandCategory
 import me.hechfx.project.util.constant.Constants.EMBED_DEFAULT_COLOR
@@ -12,12 +16,11 @@ import me.hechfx.project.util.constant.Constants.OWNER_ID
 import java.lang.management.ManagementFactory
 import java.util.concurrent.TimeUnit
 
-class BotInfoCommand: Command {
-    override val labels = listOf("botinfo")
-    override val description = "Bot Informations"
-    override val category = CommandCategory.INFO
-    override val onlyDev = false
-    override val debugMode = false
+class BotInfoCommand: TextCommand(Options) {
+    companion object Options: TextCommand.Options(listOf("botinfo")) {
+        override val description = "Bot Informations"
+        override val category = CommandCategory.INFO
+    }
 
     @FlowPreview
     override suspend fun run(context: CommandContext) {
@@ -33,6 +36,7 @@ class BotInfoCommand: Command {
         val usedRAM = (runtime.totalMemory() - runtime.freeMemory()) / mb
         val availableRAM = (runtime.totalMemory() - usedRAM) / mb
         val cores = runtime.availableProcessors()
+        val users: Flow<User> = context.client.guilds.map { it.members }.flattenMerge()
 
         context.message.getChannel().createMessage {
             content = context.author.mention
@@ -56,7 +60,7 @@ class BotInfoCommand: Command {
                 }
                 field {
                     name = "Usuários"
-                    value = "```${context.users.count()}```"
+                    value = "```${users.count()}```"
                     inline = true
                 }
                 field {

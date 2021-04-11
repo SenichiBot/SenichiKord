@@ -13,7 +13,6 @@ import kotlinx.coroutines.flow.map
 import me.hechfx.project.Senichi
 import me.hechfx.project.util.locale.SenichiConfig
 
-@FlowPreview
 class CommandContext(
     val client: Kord,
     val message: Message,
@@ -22,8 +21,7 @@ class CommandContext(
     val author: User,
     val member: Member,
     val textChannel: MessageChannelBehavior,
-    val users: Flow<Member> = client.guilds.map { it.members }.flattenMerge(),
-    val config: SenichiConfig
+    val senichi: Senichi
 ) {
     suspend fun reply(content: String) {
         this.textChannel.createMessage("\uD83D\uDD39 • ${this.author.mention} $content")
