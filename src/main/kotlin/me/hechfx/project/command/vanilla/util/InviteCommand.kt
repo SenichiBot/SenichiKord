@@ -1,7 +1,7 @@
 package me.hechfx.project.command.vanilla.util
 
-import dev.kord.core.behavior.channel.createEmbed
 import dev.kord.core.behavior.channel.createMessage
+import kotlinx.coroutines.FlowPreview
 import me.hechfx.project.api.Command
 import me.hechfx.project.api.CommandContext
 import me.hechfx.project.util.CommandCategory
@@ -14,6 +14,7 @@ class InviteCommand: Command {
     override val onlyDev = false
     override val debugMode = false
 
+    @FlowPreview
     override suspend fun run(context: CommandContext) {
         context.textChannel.createMessage {
             content = context.author.mention

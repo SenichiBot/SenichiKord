@@ -2,12 +2,15 @@ package me.hechfx.project.command.vanilla.info
 
 import dev.kord.common.entity.Snowflake
 import dev.kord.core.behavior.channel.createMessage
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.count
 import me.hechfx.project.api.Command
 import me.hechfx.project.api.CommandContext
 import me.hechfx.project.util.CommandCategory
 import me.hechfx.project.util.constant.Constants.EMBED_DEFAULT_COLOR
 import me.hechfx.project.util.constant.Constants.OWNER_ID
+import java.lang.management.ManagementFactory
+import java.util.concurrent.TimeUnit
 
 class BotInfoCommand: Command {
     override val labels = listOf("botinfo")
@@ -16,8 +19,20 @@ class BotInfoCommand: Command {
     override val onlyDev = false
     override val debugMode = false
 
+    @FlowPreview
     override suspend fun run(context: CommandContext) {
         val owner = context.client.getUser(Snowflake(OWNER_ID))!!
+        val runtime = Runtime.getRuntime()
+        val mb = 1024 * 1024
+        val jvm = ManagementFactory.getRuntimeMXBean()
+        val uptime = jvm.uptime
+        val days = TimeUnit.MILLISECONDS.toDays(uptime)
+        val hours = TimeUnit.MILLISECONDS.toHours(uptime) % 24
+        val minutes = TimeUnit.MILLISECONDS.toMinutes(uptime) % 60
+        val seconds = TimeUnit.MILLISECONDS.toSeconds(uptime) % 60
+        val usedRAM = (runtime.totalMemory() - runtime.freeMemory()) / mb
+        val availableRAM = (runtime.totalMemory() - usedRAM) / mb
+        val cores = runtime.availableProcessors()
 
         context.message.getChannel().createMessage {
             content = context.author.mention
@@ -37,6 +52,26 @@ class BotInfoCommand: Command {
                 field {
                     name = "Servidores"
                     value = "```${context.client.guilds.count()}```"
+                    inline = true
+                }
+                field {
+                    name = "Usuários"
+                    value = "```${context.users.count()}```"
+                    inline = true
+                }
+                field {
+                    name = "Used RAM / Available RAM"
+                    value = "```$usedRAM MB / $availableRAM MB```"
+                    inline = true
+                }
+                field {
+                    name = "Cores"
+                    value = "```$cores```"
+                    inline = true
+                }
+                field {
+                    name = "Uptime"
+                    value = "```${days}d, ${hours}h, ${minutes}m, ${seconds}s```"
                     inline = true
                 }
                 footer {

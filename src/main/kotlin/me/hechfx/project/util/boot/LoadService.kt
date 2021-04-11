@@ -3,6 +3,7 @@
 package me.hechfx.project.util.boot
 
 import com.typesafe.config.ConfigFactory
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.hocon.Hocon
@@ -10,17 +11,16 @@ import kotlinx.serialization.hocon.decodeFromConfig
 import me.hechfx.project.Senichi
 import me.hechfx.project.util.locale.SenichiConfig
 import java.io.File
-import kotlin.concurrent.thread
 
 object LoadService {
+    @FlowPreview
     @JvmStatic
+    @ExperimentalStdlibApi
     fun main(args: Array<String>) {
         val config = Hocon {}.decodeFromConfig<SenichiConfig>(ConfigFactory.parseFile(inspect("config.conf")))
 
-        thread {
-            runBlocking {
-                Senichi(config).start()
-            }
+        runBlocking {
+            Senichi(config).start()
         }
     }
 }
